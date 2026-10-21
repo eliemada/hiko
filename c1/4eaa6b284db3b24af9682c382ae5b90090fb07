@@ -1,0 +1,49 @@
+.gitignore
+  s_d6ef92503554ba::t_7746b9911cf309 1-41
+AGENTS.md
+  s_d6ef92503554ba::t_06c54fb185f39a 1-9
+README.md
+  s_d6ef92503554ba::t_62bd2ed7e31753 1-36
+eslint.config.mjs
+  s_d6ef92503554ba::t_e186018b1fc0d9 1-18
+next.config.ts
+  s_d6ef92503554ba::t_0b1ea7b7516817 1-17
+package-lock.json
+  s_d6ef92503554ba::t_784f714ee03c4b 1-6865
+package.json
+  s_d6ef92503554ba::t_609e645075d540 1-26
+public/file.svg
+  s_d6ef92503554ba::t_df71156d6b8cf4 1
+public/globe.svg
+  s_d6ef92503554ba::t_6b95d2ca053466 1
+public/next.svg
+  s_d6ef92503554ba::t_78e32368be7506 1
+public/vercel.svg
+  s_d6ef92503554ba::t_7787281bc4cd50 1
+public/window.svg
+  s_d6ef92503554ba::t_fbf4c8f7d06ac8 1
+src/app/globals.css
+  s_d6ef92503554ba::t_b1f3c3a4ec8158 1-26
+src/app/layout.tsx
+  s_d6ef92503554ba::t_be43c970891593 1-29
+src/app/page.tsx
+  s_d6ef92503554ba::t_162dca539aab5e 1-69
+tsconfig.json
+  s_d6ef92503554ba::t_e38c88d18475de 1-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c14eaa6b284db3b24af9682c382ae5b90090fb07",
+  "prompts": {},
+  "sessions": {
+    "s_d6ef92503554ba": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7266aab9-21c7-4b7b-967c-d87500a0f579",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Elie BRUNO <contact@eliebruno.com>"
+    }
+  }
+}
