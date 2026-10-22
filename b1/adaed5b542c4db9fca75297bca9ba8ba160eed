@@ -1,0 +1,19 @@
+scripts/container-smoke.mjs
+  s_6f4187268b9d6d::t_90008a3b80e1bd 55-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b1adaed5b542c4db9fca75297bca9ba8ba160eed",
+  "prompts": {},
+  "sessions": {
+    "s_6f4187268b9d6d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a161bd-cf4e-7a82-8baa-4202c3844144",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Elie BRUNO <contact@eliebruno.com>"
+    }
+  }
+}
