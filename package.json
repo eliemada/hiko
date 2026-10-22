@@ -65,7 +65,7 @@
     "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^5",
+    "typescript": "^7",
     "vitest": "^5.0.5"
   },
   "description": "A self-hosted drone logbook for pilots flying in Japan",
