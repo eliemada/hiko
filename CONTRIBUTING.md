@@ -26,6 +26,10 @@ Database changes require a reviewed Drizzle migration (`npm run db:generate`). D
 
 Use synthetic fixtures for public tests. Report vulnerabilities privately through [SECURITY.md](SECURITY.md).
 
+## Dependency maintenance
+
+Dependabot opens weekly update pull requests for npm packages, pinned GitHub Actions, and the Node container. Review runtime major upgrades deliberately and keep the Docker image, `.nvmrc`, `.node-version`, and supported engines aligned. Renovate is disabled for this repository to avoid duplicate update pull requests.
+
 ## Community
 
 Be respectful and specific. Critique the work, help others reproduce problems, and avoid personal attacks, harassment, or publishing private information. Maintainers may remove abusive content or restrict participation. For private conduct concerns, use the contact link on the [maintainer's GitHub profile](https://github.com/eliemada).
