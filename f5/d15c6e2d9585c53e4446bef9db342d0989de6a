@@ -1,0 +1,23 @@
+renovate.json
+  s_6f4187268b9d6d::t_6afcd70433ae7e 1-4
+CONTRIBUTING.md
+  s_6f4187268b9d6d::t_36566e86f6f932 29-32
+.github/dependabot.yml
+  s_6f4187268b9d6d::t_6afcd70433ae7e 26-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f5d15c6e2d9585c53e4446bef9db342d0989de6a",
+  "prompts": {},
+  "sessions": {
+    "s_6f4187268b9d6d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a161bd-cf4e-7a82-8baa-4202c3844144",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Elie BRUNO <contact@eliebruno.com>"
+    }
+  }
+}
