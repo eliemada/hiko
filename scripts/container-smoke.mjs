@@ -52,6 +52,14 @@ try {
   await ready(restoredUrl);
   command(["exec", containers[1], "node", "-e", verify]);
   console.log("PASS stopped-volume backup and restore to a fresh volume");
+} catch (error) {
+  for (const name of containers) {
+    const state = spawnSync(engine, ["inspect", "--format", "{{json .State}}", name], { encoding: "utf8", timeout: 10_000 });
+    if (state.status !== 0) continue;
+    console.error(`Container diagnostics (${name}): ${state.stdout.trim()}`);
+    spawnSync(engine, ["logs", "--tail", "100", name], { stdio: "inherit", timeout: 10_000 });
+  }
+  throw error;
 } finally {
   for (const name of containers) spawnSync(engine, ["rm", "-f", name], { stdio: "ignore" });
   for (const name of volumes) spawnSync(engine, ["volume", "rm", name], { stdio: "ignore" });
