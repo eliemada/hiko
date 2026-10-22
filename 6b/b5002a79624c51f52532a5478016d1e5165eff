@@ -1,0 +1,38 @@
+CHANGELOG.md
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 3
+docs/compatibility.md
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 3
+compose.yaml
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 4
+package.json
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 3
+.env.example
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 23
+docs/launch.md
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 7
+docs/self-hosting.md
+  s_6f4187268b9d6d::t_7b5da7a79ccce3 107
+Dockerfile
+  s_6f4187268b9d6d::t_7f1038b7caf5a5 5
+scripts/container-smoke.mjs
+  s_6f4187268b9d6d::t_a17d4199aba6a4 26,28-32,35
+  s_6f4187268b9d6d::t_7f1038b7caf5a5 19-21,53-54
+package-lock.json
+  s_6f4187268b9d6d::t_f4296e539a2b55 3,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6bb5002a79624c51f52532a5478016d1e5165eff",
+  "prompts": {},
+  "sessions": {
+    "s_6f4187268b9d6d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a161bd-cf4e-7a82-8baa-4202c3844144",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Elie BRUNO <contact@eliebruno.com>"
+    }
+  }
+}
