@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/eliemada/hiko/security/advisories/new
+    about: Do not disclose security issues or private flight data in public reports.
+  - name: Installation and backup guide
+    url: https://github.com/eliemada/hiko/blob/main/docs/self-hosting.md
+    about: Setup, configuration, upgrades, and data recovery.

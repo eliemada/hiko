@@ -1,0 +1,36 @@
+name: Device compatibility
+description: Tell us which aircraft/controller/log combination worked or failed.
+title: "[Compatibility] "
+labels: [compatibility]
+body:
+  - type: markdown
+    attributes:
+      value: "Share model and version information only. Keep raw logs, registration IDs, serial numbers, and real coordinates private."
+  - type: input
+    id: hiko
+    attributes:
+      label: Hikō version
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: Aircraft and controller or phone models
+    validations:
+      required: true
+  - type: input
+    id: software
+    attributes:
+      label: DJI Fly, firmware, and OS versions
+  - type: dropdown
+    id: result
+    attributes:
+      label: Outcome
+      options: [Full decode and export worked, Header-only import, Import failed, Export problem]
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Include log format/version if known, whether a DJI key was configured, and redacted errors. Never include the key.

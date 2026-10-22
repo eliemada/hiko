@@ -1,0 +1,32 @@
+import { expect, test } from "@playwright/test";
+
+test("fictional demo reviews, signs, exports, and resets without sending data", async ({ page, request }) => {
+  const errors: string[] = [];
+  const thirdParty: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("request", (req) => { if (!new URL(req.url()).hostname.match(/^(localhost|127\.0\.0\.1)$/)) thirdParty.push(req.url()); });
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Ready for the logbook");
+  await page.getByRole("button", { name: /Load sample flight/ }).click();
+  const sign = page.getByRole("button", { name: /Apply sample signature/ });
+  await expect(sign).toBeDisabled();
+  for (const check of await page.getByRole("checkbox").all()) await check.check();
+  await expect(sign).toBeEnabled();
+  await sign.click();
+  await expect(page.getByText("Signed sample", { exact: true })).toBeVisible();
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("link", { name: /Download PDF/ }).click();
+  expect((await downloadPromise).suggestedFilename()).toBe("sample-signed.pdf");
+  const pdf = await request.get("/assets/sample-signed.pdf");
+  expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  const xlsx = await request.get("/assets/sample-signed.xlsx");
+  expect((await xlsx.body()).subarray(0, 2).toString()).toBe("PK");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  expect(await page.context().cookies()).toEqual([]);
+  expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
+  await page.getByRole("button", { name: /Reset demo/ }).click();
+  await expect(page.getByRole("button", { name: /Load sample flight/ })).toBeVisible();
+  await expect(page.locator("#review-panel")).toBeHidden();
+  expect(errors).toEqual([]);
+  expect(thirdParty).toEqual([]);
+});

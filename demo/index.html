@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14243c">
+  <meta name="description" content="Try Hikō, an open-source drone logbook for pilots flying in Japan. Review a fictional flight and download bilingual MLIT Form 1 PDF and Excel samples.">
+  <meta property="og:title" content="Hikō · Your flights, ready for the logbook">
+  <meta property="og:description" content="A self-hosted drone logbook for Japan. Try the fictional-data demo, then make it your own.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://eliemada.github.io/hiko/assets/social-preview.png">
+  <meta property="og:url" content="https://eliemada.github.io/hiko/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Hikō · A drone logbook for Japan</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="demo.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to the demo</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Hikō home"><img src="assets/icon.svg" alt="" width="34" height="34"><span>Hikō <span class="brand-ja" lang="ja">飛行日誌</span></span></a>
+    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="https://github.com/eliemada/hiko#quick-start">Self-host</a><a class="github" href="https://github.com/eliemada/hiko">View on GitHub <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span> OPEN SOURCE · SELF-HOSTED · PUBLIC BETA</div>
+      <h1>Your flights.<br><span>Ready for the logbook.</span></h1>
+      <p class="intro">Turn DJI flight records into bilingual flight logs for Japan.<br class="desktop"> Review the details, sign your flights, and export PDF or Excel in MLIT Form 1 format.</p>
+      <div class="hero-actions"><a class="button primary" href="#workspace">Try a sample flight <span aria-hidden="true">↓</span></a><a class="text-link" href="assets/sample-signed.pdf">See the sample PDF <span aria-hidden="true">↗</span></a></div>
+      <p class="hero-note">No account. No API key. No personal flight data.</p>
+    </section>
+
+    <section class="workspace" id="workspace" aria-labelledby="workspace-title">
+      <aside class="sidebar">
+        <div class="side-brand"><img src="assets/icon.svg" alt="" width="30" height="30"><span>Hikō <small>DEMO FLEET</small></span></div>
+        <p class="side-label">YOUR LOGBOOK</p>
+        <div class="side-item active"><span aria-hidden="true">◈</span> Flight records <span class="side-count" id="flight-count">0</span></div>
+        <a class="side-item" href="assets/sample-signed.pdf"><span aria-hidden="true">▤</span> Sample logbook <span aria-hidden="true">↗</span></a>
+        <div class="side-note"><span class="small-label">MADE FOR JAPAN</span><p>English interface.<br>Japanese-ready records.</p><span lang="ja">一便ずつ、確かな記録を。</span></div>
+        <div class="pilot"><span class="avatar">SP</span><span>Sample Pilot<small>Fictional demonstration</small></span></div>
+      </aside>
+      <div class="main-panel">
+        <div class="panel-header"><div><p class="small-label">FLIGHT RECORDS / <span lang="ja">飛行記録</span></p><h2 id="workspace-title">A flight, from record to logbook.</h2></div><button class="reset" id="reset" type="button">Reset demo <span aria-hidden="true">↻</span></button></div>
+        <div class="demo-notice"><span class="demo-pill">INTERACTIVE PREVIEW</span><span>Fictional data. Changes stay in this tab. No real uploads.</span></div>
+        <ol class="steps" aria-label="Demo progress"><li class="current" id="step-load"><span>1</span> Load sample</li><li id="step-review"><span>2</span> Review &amp; sign</li><li id="step-export"><span>3</span> Export</li></ol>
+
+        <div id="load-panel" class="load-panel">
+          <div class="file-icon" aria-hidden="true">↥</div>
+          <h3>Start with one fictional flight.</h3>
+          <p>See the review workflow with prepared sample data.<br>The full app imports DJI <code>FlightRecord_*.txt</code> files.</p>
+          <div class="sample-file"><span aria-hidden="true">▤</span><div><strong>Sample flight · 20 October 2026</strong><small>20 minutes · Fictional flying field · Training</small></div><span class="file-tag">SAMPLE</span></div>
+          <button type="button" class="button primary" id="load-sample">Load sample flight <span aria-hidden="true">→</span></button>
+        </div>
+
+        <div id="review-panel" hidden>
+          <div class="flight-heading"><div><span class="small-label">20 OCT 2026 · 09:12 JST</span><h3>Fictional flying field <span lang="ja">架空の飛行場</span></h3></div><span class="status" id="flight-status">Needs review</span></div>
+          <div class="stats"><div><span>FLIGHT TIME</span><strong>20<small> min</small></strong></div><div><span>OFF → ON · JST</span><strong class="time">09:12 <span>→</span> 09:32</strong></div><div><span>AIRFRAME TOTAL</span><strong>0:20<small> hrs</small></strong></div></div>
+          <div class="review-grid">
+            <div>
+              <div class="map-card" role="img" aria-label="Illustrated fictional route. This is not a real location or a flight permission map.">
+                <svg viewBox="0 0 600 270" aria-hidden="true"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#d3dece" stroke-width=".5"/></pattern></defs><rect width="600" height="270" fill="#eaf0e5"/><path d="M-30 205Q140 50 265 180T630 105" fill="none" stroke="#c1dce7" stroke-width="58"/><path d="M-30 205Q140 50 265 180T630 105" fill="none" stroke="#d4e7ef" stroke-width="38"/><rect width="600" height="270" fill="url(#grid)"/><path d="M-10 65 140 95 260 30 410 50 610 15M65 280 180 190 345 150 470 50" fill="none" stroke="#fafaf6" stroke-width="9"/><path d="M161 146Q180 54 309 70T438 136 355 214 215 204 161 146" fill="none" stroke="#0b5fd1" stroke-width="4" stroke-linecap="round"/><circle cx="161" cy="146" r="12" fill="white"/><circle cx="161" cy="146" r="7" fill="#0b5fd1"/><path d="m308 65 10 7-12 5z" fill="#0b5fd1"/></svg>
+                <span class="map-label">ILLUSTRATED SAMPLE ROUTE</span><span class="map-key"><span class="dot"></span> Takeoff &amp; landing</span>
+              </div>
+              <dl class="details"><div><dt>Aircraft <span lang="ja">機体</span></dt><dd>Fictional demo aircraft</dd></div><div><dt>Pilot <span lang="ja">操縦者</span></dt><dd>Sample Pilot</dd></div><div><dt>Purpose <span lang="ja">目的</span></dt><dd><span lang="ja">訓練</span> · Training</dd></div><div><dt>Weather <span lang="ja">天候</span></dt><dd>Fair · 18°C · Wind 2 m/s <small>(invented)</small></dd></div><div><dt>Specific flight <span lang="ja">特定飛行</span></dt><dd>None in this fictional example</dd></div></dl>
+            </div>
+            <div class="review-card"><span class="small-label">PILOT REVIEW / <span lang="ja">確認</span></span><h4>A moment to make it yours.</h4><p>In the full app, review and correct the imported details before signing.</p>
+              <fieldset id="review-checks"><legend class="sr-only">Sample flight review</legend><label><input type="checkbox" id="check-times"> Times and places reviewed</label><label><input type="checkbox" id="check-conditions"> Purpose and conditions reviewed</label><label><input type="checkbox" id="check-sample"> This is a fictional sample</label></fieldset>
+              <div class="signature" id="signature"><span>Sample signature appears here</span></div>
+              <button type="button" class="button primary full" id="sign-sample" disabled>Apply sample signature <span aria-hidden="true">✓</span></button>
+              <p class="fine-print">Demonstration only. Your actual signature stays on your own instance.</p>
+            </div>
+          </div>
+          <div class="export-panel" id="export-panel" hidden><div><span class="small-label">READY TO EXPORT</span><h4>Your sample logbook is ready.</h4><p>These files are generated by Hikō’s real PDF and Excel exporters. Every entry is fictional.</p></div><div class="export-actions"><a class="button primary" href="assets/sample-signed.pdf" download>Download PDF <span aria-hidden="true">↓</span></a><a class="button secondary" href="assets/sample-signed.xlsx" download>Download Excel <span aria-hidden="true">↓</span></a></div></div>
+        </div>
+        <p role="status" aria-live="polite" id="announcement" class="sr-only"></p>
+      </div>
+    </section>
+
+    <section class="features" id="how-it-works" aria-label="How Hikō works"><article><span class="feature-number">01 / IMPORT</span><h2>Less copying.<br> More flying.</h2><p>Import DJI flight records or add a flight manually. Encrypted logs need your own DJI API key; manual entries work without one.</p></article><article><span class="feature-number">02 / REVIEW</span><h2>The pilot<br> has the final say.</h2><p>Check flight details and suggested conditions, then sign. Signed entries lock until the signature is removed.</p></article><article><span class="feature-number">03 / KEEP</span><h2>Your server.<br> Your fleet’s records.</h2><p>Self-host with Docker. Export bilingual PDF and Excel records, and back up your database and original logs together.</p></article></section>
+    <section class="closing"><div><span class="small-label">BUILT FOR A SPECIFIC JOB</span><h2>Flying in Japan is complicated.<br>Your logbook can be simpler.</h2><p>Hikō is an independent project. It currently covers MLIT Form 1 flight records. Daily inspection and maintenance forms, permits, and DIPS submissions are separate.</p><a class="text-link" href="https://www.mlit.go.jp/koku/operation.html">Read MLIT’s guidance and templates <span aria-hidden="true">↗</span></a></div><a class="button primary" href="https://github.com/eliemada/hiko#quick-start">Set up your own Hikō <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer><span>Hikō <span lang="ja">飛行日誌</span> · Made for the next flight.</span><nav aria-label="Project links"><a href="https://github.com/eliemada/hiko/blob/main/PRIVACY.md">Data &amp; privacy</a><a href="https://github.com/eliemada/hiko/issues/new/choose">Share feedback</a><a href="https://github.com/eliemada/hiko/blob/main/LICENSE">MIT license</a></nav><p>This demo sets no cookies and uses no analytics or third-party requests. Hosting providers may retain access logs.</p></footer>
+  <noscript><p class="noscript">JavaScript is needed for the interactive preview. You can still <a href="assets/sample-signed.pdf">download the sample PDF</a> or <a href="https://github.com/eliemada/hiko">read the project documentation</a>.</p></noscript>
+</body>
+</html>

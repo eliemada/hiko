@@ -1,0 +1,19 @@
+{
+  "fictional": true,
+  "id": "sample-flight",
+  "pilotId": "sample",
+  "takeoffAt": 1792455120000,
+  "landingAt": 1792456320000,
+  "durationSec": 1200,
+  "totalSec": 1200,
+  "timeZone": "Asia/Tokyo",
+  "pilotName": "Sample Pilot / 架空の操縦者",
+  "pilotLicense": null,
+  "purpose": "訓練 (Training)",
+  "specificFlights": [],
+  "route": "",
+  "takeoffPlace": "架空の飛行場 / Fictional field",
+  "landingPlace": "架空の飛行場 / Fictional field",
+  "safetyNotes": "架空 / SAMPLE: 晴れ Fair, 18°C, 2 m/s",
+  "signedAt": null
+}

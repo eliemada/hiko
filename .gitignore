@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local data
+/data
+!.env.example
+/test-results
+/public/vendor
+/.next-test/
+/playwright-report/
+/.release/
+/backups/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+# Raw flight logs belong in private local storage, never in the repository.
+FlightRecord*.txt
+DJIFlightRecord*.txt

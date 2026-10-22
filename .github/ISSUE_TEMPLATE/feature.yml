@@ -1,0 +1,16 @@
+name: Feature idea
+description: Suggest a focused improvement to the pilot workflow.
+title: "[Idea] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Explain the situation you encounter while keeping records.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior and alternatives
