@@ -16,15 +16,23 @@ function command(args, options = {}) {
 function start(name, volume) {
   command(["run", "-d", "--name", name, "-p", "127.0.0.1::3000", "--mount", `type=volume,source=${volume},target=/data`,
     "-e", "BETTER_AUTH_SECRET=container-smoke-only-never-a-real-secret-0001", "-e", "BETTER_AUTH_URL=http://localhost:3000", image]);
+  return containerUrl(name);
+}
+function containerUrl(name) {
   const mapping = command(["port", name, "3000/tcp"]).trim().split("\n")[0];
   return `http://127.0.0.1:${mapping.split(":").at(-1)}`;
 }
 async function ready(url) {
+  let lastFailure = "No response";
   for (let i = 0; i < 60; i++) {
-    try { if ((await fetch(`${url}/api/health`, { signal: AbortSignal.timeout(2000) })).ok) return; } catch { /* still starting */ }
+    try {
+      const response = await fetch(`${url}/api/health`, { signal: AbortSignal.timeout(2000) });
+      if (response.ok) return;
+      lastFailure = `HTTP ${response.status}`;
+    } catch (error) { lastFailure = error.message; }
     await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  throw new Error("Container readiness timed out");
+  throw new Error(`Container readiness timed out at ${url}: ${lastFailure}`);
 }
 const verify = `const fs=require('node:fs');const {DatabaseSync}=require('node:sqlite');const db=new DatabaseSync('/data/hiko.db');if(db.prepare('SELECT value FROM release_probe').get().value!==42)process.exit(1);if(fs.readFileSync('/data/logs/fictional.txt','utf8')!=='fictional backup probe')process.exit(2);if(fs.existsSync('/app/data/hiko.db'))process.exit(3);`;
 try {
@@ -42,7 +50,8 @@ try {
   assert.equal((await fetch(`${url}/api/export/pdf?aircraft=missing`)).status, 401);
   command(["exec", containers[0], "node", "-e", `const fs=require('node:fs');const {DatabaseSync}=require('node:sqlite');fs.mkdirSync('/data/logs',{recursive:true});fs.writeFileSync('/data/logs/fictional.txt','fictional backup probe');const db=new DatabaseSync('/data/hiko.db');db.exec('CREATE TABLE release_probe(value INTEGER); INSERT INTO release_probe VALUES(42)');db.close();`]);
   command(["restart", containers[0]]);
-  await ready(url);
+  // Docker can assign a new ephemeral host port when a container restarts.
+  await ready(containerUrl(containers[0]));
   command(["exec", containers[0], "node", "-e", verify]);
   console.log("PASS non-root startup, migrations, authentication, and restart persistence");
   command(["stop", containers[0]]);

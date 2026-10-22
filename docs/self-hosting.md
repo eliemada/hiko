@@ -104,7 +104,7 @@ Migrations run automatically. Downgrading the image does not undo migrations; re
 ## Verify image provenance
 
 ```bash
-gh attestation verify oci://ghcr.io/eliemada/hiko:0.1.0-beta.1 --repo eliemada/hiko
+gh attestation verify oci://ghcr.io/eliemada/hiko:0.1.0-beta.2 --repo eliemada/hiko
 ```
 
 Release assets include a production dependency inventory and SHA-256 checksums. Provenance identifies the build source and workflow; it does not validate flight records.

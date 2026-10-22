@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-beta.1 — 2026-10-22
+## 0.1.0-beta.2 — 2026-10-22
 
 First public beta of Hikō, an independent self-hosted drone logbook for Japan.
 

@@ -1,6 +1,6 @@
 # Compatibility and scope
 
-Hikō `0.1.0-beta.1` supports a flight-record workflow for one trusted fleet. Automatic extraction and suggestions are starting points for pilot review, not a determination of legality or a complete compliance system.
+Hikō `0.1.0-beta.2` supports a flight-record workflow for one trusted fleet. Automatic extraction and suggestions are starting points for pilot review, not a determination of legality or a complete compliance system.
 
 | Source | Implementation | Evidence / limitation |
 | --- | --- | --- |

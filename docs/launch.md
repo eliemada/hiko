@@ -4,7 +4,7 @@
 
 - Repository: https://github.com/eliemada/hiko
 - Interactive fictional-data demo: https://eliemada.github.io/hiko/
-- Release: https://github.com/eliemada/hiko/releases/tag/v0.1.0-beta.1
+- Release: https://github.com/eliemada/hiko/releases/tag/v0.1.0-beta.2
 - Video: `docs/media/walkthrough.mp4`
 - GitHub social preview: `docs/media/social-preview.png` (1280 × 640)
 

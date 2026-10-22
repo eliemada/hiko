@@ -1,7 +1,7 @@
 services:
   hiko:
     build: .
-    image: ${HIKO_IMAGE:-ghcr.io/eliemada/hiko:0.1.0-beta.1}
+    image: ${HIKO_IMAGE:-ghcr.io/eliemada/hiko:0.1.0-beta.2}
     restart: unless-stopped
     ports:
       - "${HIKO_BIND:-127.0.0.1}:${HIKO_PORT:-3000}:3000"
